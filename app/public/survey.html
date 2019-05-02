@@ -186,10 +186,8 @@
 
         console.log(newFriend);
 
-        $.post("/api/friends", newFriend, function (data) {
-            if (data) {
-                alert("Add match info here");
-            }
+        $.post("/api/friends", newFriend, function(data) {
+            console.log(data);
 
             /* $("#name").val("");
             $("##photoLink").val(""); */
