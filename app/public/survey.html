@@ -167,26 +167,20 @@
     $("#submitBtn").on("click", function (event) {
         event.preventDefault();
 
-        var e = document.getElementById("q1");
-        var strUser = e.options[e.selectedIndex].value;
-        console.log("trying to get value: " + strUser);
-        console.log(typeof (strUser));
+        let answersArray = [];
 
+        for (i = 1; i < 11; i++) {
+            var question = document.getElementById(`q${i}`);
+            var getVal = question.options[question.selectedIndex].value;
+        
+            answersArray.push(parseInt(getVal));
+            //console.log(answersArray);
+        };
+        
         let newFriend = {
             name: $("#name").val().trim(),
             photo: $("#photoLink").val().trim(),
-            scores: [
-                $("#q1").value,
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-            ]
+            scores: answersArray
         };
 
         console.log(newFriend);
