@@ -170,11 +170,10 @@
         let answersArray = [];
 
         for (i = 1; i < 11; i++) {
-            var question = document.getElementById(`q${i}`);
-            var getVal = question.options[question.selectedIndex].value;
+            let question = document.getElementById(`q${i}`);
+            let getVal = question.options[question.selectedIndex].value;
         
             answersArray.push(parseInt(getVal));
-            //console.log(answersArray);
         };
         
         let newFriend = {
@@ -184,17 +183,12 @@
         };
 
         console.log(newFriend);
-        //console.log(typeOf(newFriend.scores[0]));
-
+        
         $.post("/api/friends", newFriend, function (data) {
 
             if (data) {
                 console.log(data);
             }
-
-
-            /* $("#name").val("");
-            $("##photoLink").val(""); */
 
         })
     })
