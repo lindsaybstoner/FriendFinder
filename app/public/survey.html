@@ -182,13 +182,19 @@
             scores: answersArray
         };
 
-        console.log(newFriend);
+        //console.log(newFriend);
         
         $.post("/api/friends", newFriend, function (data) {
 
-            if (data) {
+            console.log(newFriend.scores);
+            console.log(data[0].scores);
+
+            newFriend.scores.forEach(element => {
+                
+            });
+            /* if (data) {
                 console.log(data);
-            }
+            } */
 
         })
     })
