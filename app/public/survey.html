@@ -167,12 +167,10 @@
     $("#submitBtn").on("click", function (event) {
         event.preventDefault();
 
-        let test = $("#q1").val();
-
-        console.log("look here" + test.charAt(0));
-
-        console.log(typeof(test));
-
+        var e = document.getElementById("q1");
+        var strUser = e.options[e.selectedIndex].value;
+        console.log("trying to get value: " + strUser);
+        console.log(typeof (strUser));
 
         let newFriend = {
             name: $("#name").val().trim(),
@@ -194,12 +192,12 @@
         console.log(newFriend);
         //console.log(typeOf(newFriend.scores[0]));
 
-        $.post("/api/friends", newFriend, function(data) {
-            
-            if (data){
+        $.post("/api/friends", newFriend, function (data) {
+
+            if (data) {
                 console.log(data);
             }
-            
+
 
             /* $("#name").val("");
             $("##photoLink").val(""); */
