@@ -14,5 +14,12 @@ module.exports = function(app) {
         res.json(friendData);
 
         //add compatibility logic
+
+        //console.log(req.body);
+        //console.log(req.body.scores);
+        console.log(friendData);
+
+        
+
     });
 }
