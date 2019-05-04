@@ -35,14 +35,27 @@ module.exports = function(app) {
         
             addToTotalDiffs();
             
-        }
+        };
         
         function addToTotalDiffs(){
             allTotalDiffs.push({totalDifference : totalDifference, referenceSpot: refSpot});
             refSpot++;
-        }
+        };
     
         console.log(allTotalDiffs);
+
+        let bestMatch = {
+            totalDifference: 40,
+            bestSpot: null
+        };
+
+        for (let k = 0; k < allTotalDiffs.length; k++){
+            if (allTotalDiffs[k].totalDifference < bestMatch.totalDifference){
+
+                bestMatch.bestSpot = allTotalDiffs[k].referenceSpot;
+                
+            }
+        }
 
     });
 }
