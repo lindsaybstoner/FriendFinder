@@ -13,18 +13,11 @@ module.exports = function(app) {
         friendData.push(req.body);
         res.json(friendData);
 
-        //console.log(req.body.scores);
-        //console.log(parseInt(req.body.scores));
-        //console.log(friendData[0].scores);
-
         let currentUserScores = [];
 
         for (let i = 0; i < req.body.scores.length; i++){
             currentUserScores.push(parseInt(req.body.scores[i]));
         }
-
-        //console.log(currentUserScores);
-        
         
         let totalDifference = 0;
 
@@ -39,30 +32,17 @@ module.exports = function(app) {
             for(let i = 0; i < 10; i++){
                 totalDifference += Math.abs(friendData[j].scores[i] - currentUserScores[i]);
             }
-            
+        
             addToTotalDiffs();
             
-            
         }
-
-        /* for(let i = 0; i < 10; i++){
-            totalDifference += Math.abs(friendData[0].scores[i] - currentUserScores[i]);
-            //allTotalDiffs.push({totalDifference : totalDifference, referenceSpot: i})
-        } */
         
         function addToTotalDiffs(){
             allTotalDiffs.push({totalDifference : totalDifference, referenceSpot: refSpot});
             refSpot++;
         }
-        
-        //addToTotalDiffs();
-
+    
         console.log(allTotalDiffs);
-
-
-
-       /*  console.log(totalDifference);
-        console.log(allTotalDiffs); */
 
     });
 }
