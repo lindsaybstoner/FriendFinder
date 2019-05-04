@@ -13,13 +13,36 @@ module.exports = function(app) {
         friendData.push(req.body);
         res.json(friendData);
 
-        //add compatibility logic
-
-        //console.log(req.body);
-        //console.log(req.body.scores);
-        console.log(friendData);
-
         
+
+        //console.log(req.body.scores);
+        //console.log(parseInt(req.body.scores));
+        console.log(friendData[0].scores);
+
+        let currentUserScores = [];
+
+        for (let i = 0; i < req.body.scores.length; i++){
+            currentUserScores.push(parseInt(req.body.scores[i]));
+        }
+
+        console.log(currentUserScores);
+        
+        
+        let totalDifference = 0;
+
+        let allTotalDiffs = [];
+
+        let refSpot = 0;
+        
+        for(let i = 0; i < 10; i++){
+            totalDifference += Math.abs(friendData[0].scores[i] - currentUserScores[i]);
+            //allTotalDiffs.push({totalDifference : totalDifference, referenceSpot: i})
+        }
+        
+        allTotalDiffs.push({totalDifference : totalDifference, referenceSpot: refSpot})
+
+        console.log(totalDifference);
+        console.log(allTotalDiffs);
 
     });
 }
