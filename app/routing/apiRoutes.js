@@ -49,13 +49,17 @@ module.exports = function(app) {
 
         for (let k = 0; k < allTotalDiffs.length; k++){
             if (allTotalDiffs[k].totalDifference < bestMatch.totalDifference){
+                
+                bestMatch.totalDifference = allTotalDiffs[k].totalDifference;
+                console.log(bestMatch.totalDifference);
 
                 bestMatch.bestSpot = allTotalDiffs[k].referenceSpot;
+                console.log(bestMatch.bestSpot);
 
             }
         }
 
-        console.log(bestMatch.bestSpot);
+        //console.log(bestMatch.bestSpot);
 
         let bestMatchPerson = {};
 

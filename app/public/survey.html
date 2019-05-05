@@ -167,8 +167,8 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                        <div id = "matchName"></div>
-                        <div id = "matchPhoto"></div>
+                        <h3 id = "matchName"></h3>
+                        <img id="matchImg" src ="" alt="" width="300">
                     </div>
                   </div>
                 </div>
@@ -199,6 +199,8 @@
             scores: answersArray
         };
         
+        console.log("hello");
+
         $.post("/api/friends", newFriend, function (data) {
             console.log(data.name);
             $("#matchName").text(data.name);
