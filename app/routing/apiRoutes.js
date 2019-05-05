@@ -9,7 +9,7 @@ module.exports = function(app) {
 
     app.post("/api/friends", function(req, res) {
         friendData.push(req.body);
-        res.json(friendData);
+        //res.json(friendData);
 
         let currentUserScores = [];
 
@@ -55,8 +55,15 @@ module.exports = function(app) {
             }
         }
 
-        console.log(bestMatch);
+        console.log(bestMatch.bestSpot);
 
+        let bestMatchPerson = {};
 
+        bestMatchPerson = friendData[bestMatch.bestSpot];
+
+        console.log(bestMatchPerson);
+
+        res.json(bestMatchPerson);
     });
 }
+
