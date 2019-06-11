@@ -1,45 +1,45 @@
 
 const friendData = require("../data/friends");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-    app.get("/api/friends", function(req, res){
+    app.get("/api/friends", function (req, res) {
         res.json(friendData);
     });
 
-    app.post("/api/friends", function(req, res) {
+    app.post("/api/friends", function (req, res) {
         friendData.push(req.body);
         //res.json(friendData);
 
         let currentUserScores = [];
 
-        for (let i = 0; i < req.body.scores.length; i++){
+        for (let i = 0; i < req.body.scores.length; i++) {
             currentUserScores.push(parseInt(req.body.scores[i]));
         }
-        
+
         let totalDifference = 0;
 
         let allTotalDiffs = [];
 
         let refSpot = 0;
-        
-        for (let j = 0; j < friendData.length - 1; j++){
-           
+
+        for (let j = 0; j < friendData.length - 1; j++) {
+
             totalDifference = 0;
 
-            for(let i = 0; i < 10; i++){
+            for (let i = 0; i < 10; i++) {
                 totalDifference += Math.abs(friendData[j].scores[i] - currentUserScores[i]);
             }
-        
+
             addToTotalDiffs();
-            
+
         };
-        
-        function addToTotalDiffs(){
-            allTotalDiffs.push({totalDifference : totalDifference, referenceSpot: refSpot});
+
+        function addToTotalDiffs() {
+            allTotalDiffs.push({ totalDifference: totalDifference, referenceSpot: refSpot });
             refSpot++;
         };
-    
+
         console.log(allTotalDiffs);
 
         let bestMatch = {
@@ -47,9 +47,9 @@ module.exports = function(app) {
             bestSpot: null
         };
 
-        for (let k = 0; k < allTotalDiffs.length; k++){
-            if (allTotalDiffs[k].totalDifference < bestMatch.totalDifference){
-                
+        for (let k = 0; k < allTotalDiffs.length; k++) {
+            if (allTotalDiffs[k].totalDifference < bestMatch.totalDifference) {
+
                 bestMatch.totalDifference = allTotalDiffs[k].totalDifference;
                 console.log(bestMatch.totalDifference);
 
