@@ -15,6 +15,7 @@ If you are interested in seeing all the people in the database you can click the
 * [Heroku](https://heroku.com) - Hosting and deployment 
 * [Node.js](https://nodejs.org/en/) - JavaScript for backend
 * [Express.js](https://expressjs.com/) - standard server framework for Node.js for building web applications and APIs
+* [Bootstrap](https://getbootstrap.com/) - CSS framework
 
 ## Authors
 * **Lindsay Stoner** - [lindsaybstoner](https://github.com/lindsaybstoner)
